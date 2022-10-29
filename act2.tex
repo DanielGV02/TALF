@@ -1,0 +1,42 @@
+\documentclass[fleqn, 10pt]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm, amsmath}
+\usepackage{nccmath} %Para centrar ecuaciones
+\usepackage{graphicx}
+\usepackage{enumitem}
+
+    \title{\textbf{Practica 1}}
+    \author{Daniel García Villodres}
+    \date{}
+    
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+    
+
+    
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Actividad 2}
+Consideremos $L=\{w\in \{a,b\}^* : w \textnormal{ no termina en } ab\}$. Un expresión regular que genera L es: \\
+
+\subsection*{}
+
+\begin{ceqn}
+	\begin{align*}
+	(a+b)^*a+(a+b)^*bb+a^*
+	\end{align*}
+\end{ceqn}
+Diferenciamos 3 lenguajes: $L((a+b)^*a)$, $L((a+b)^*bb)$ y $L(a^*)$\\
+El primero de ellos nos representa las cadenas formadas con a y b, terminadas siempre en a (con ello conseguimos las cadenas terminadas en aa y ba).\\
+La segunda expresión representa el lenguaje de todas las cadenas formadas por a y b, terminadas en bb.\\
+Por tanto, ya hemos conseguido todas las cadenas posibles que no terminen en ab, sin embargo, nos falta la cadena vacía $\epsilon$. Para ello, añadimos otro lenguaje como $a^*$ que contiene la cadena vacía.\\
+La unión (+) de los 3 lenguajes nos dará la solución a la actividad.\\
+
+
+
+\end{document}
