@@ -1,0 +1,77 @@
+\documentclass[fleqn, 10pt]{article}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsthm, amsmath}
+\usepackage{nccmath} %Para centrar ecuaciones
+\usepackage{graphicx}
+\usepackage{enumitem}
+\graphicspath{ {} } 
+
+    \title{\textbf{Practica 2}}
+    \author{Daniel García Villodres}
+    \date{}
+    
+    \addtolength{\topmargin}{-3cm}
+    \addtolength{\textheight}{3cm}
+    
+
+    
+\begin{document}
+
+\maketitle
+\thispagestyle{empty}
+
+\section*{Apartado 1}
+Definición matemática del lenguaje que contiene la cadena a
+
+\subsection*{}
+Entre los estados $q_0$(inicial) y $q_1$(final) habrá una transición con la a, que será la única cadena que acepte. El estado $q_0$ tendrá también una transición con la b hacia $q_2$ en cuál será un estado "basura" en el que mandaremos aquellas cadenas que no vamos a aceptar. Lo mismo haremos desde $q_1$ con a y b. Por último en $q_2$ habrá una transición tanto con a como con b hacia sí mismo. La expresión matemática del autómata nos quedará así:\\
+\\
+$M=(K, \Sigma, \delta,s, F) = (\{q_0,q_1,q_2\}, \{a,b\}, \delta, q_0, \{q_1\})$
+
+\begin{table}[h!]
+\begin{tabular}{c|c|c}
+  $\delta(q,\sigma)$ & $a$ & $b$\\
+  \hline
+  $q_0$& $q_1$ & $q_2$\\
+  \hline
+  $q_1$& $q_2$ & $q_2$\\
+  \hline
+  $q_2$& $q_2$ & $q_2$
+\end{tabular}
+\end{table}
+
+
+\section*{Apartado 2}
+Hacer el autómata en JFLAP e incluir la imagen en el documento
+
+\subsection*{}
+\includegraphics[scale=0.5]{captura}
+
+
+\section*{Apartado 3}
+También hacerlo en Octave, describiendo el JSON dentro de un entorno "verbatim" de Latex.
+
+\subsection*{}
+\begin{verbatim}
+[
+   {
+    "name" : "a",
+    "representation" : {
+      "K" : ["q0", "q1", "q2"],
+      "A" : ["a", "b"],
+      "s" : "q0",
+      "F" : ["q1"],
+      "t" : [["q0", "a", "q1"],
+             ["q0", "b", "q2"],
+             ["q1", "a", "q2"],
+             ["q1", "b", "q2"],
+             ["q2", "a", "q2"],
+             ["q2", "b", "q2"]]
+      }
+  }
+]
+\end{verbatim}
+
+\end{document}
